@@ -41,13 +41,13 @@ pipeline {
         }
 
         stage('Quality Gate') {
-            steps {
-                timeout(time: 10, unit: 'MINUTES') { // Espera máximo 10 minutos
-                    // !!! USA EL NOMBRE DE TU SERVIDOR SONARQUBE CONFIGURADO EN JENKINS !!!
-                    waitForQualityGate abortPipeline: true, sonarqubeInstallationName: 'SonarQubeLocal'
-                }
-            }
+    steps {
+        timeout(time: 10, unit: 'MINUTES') { // Espera máximo 10 minutos
+            waitForQualityGate abortPipeline: true
         }
+    }
+}
+
     }
 
     post {
